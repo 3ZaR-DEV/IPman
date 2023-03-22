@@ -1,0 +1,12 @@
+Options +MultiViews
+Options All -Indexes
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteCond %{SCRIPT_FILENAME} -d [OR]
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteRule "(^|/)\." - [F]
+ErrorDocument 404 /error/404.php
+ErrorDocument 400 /error/400.php
+ErrorDocument 403 /error/403.php
